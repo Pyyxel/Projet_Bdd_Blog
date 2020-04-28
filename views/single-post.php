@@ -1,3 +1,10 @@
+<?php
+    require_once('../controllers/AManage.php');
+    $id_article=$_GET['id-article'];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
