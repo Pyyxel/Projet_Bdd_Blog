@@ -66,6 +66,14 @@ abstract class ADatabase {
         return $req;
     }
 
+
+    public function reqAllArticleById($id){
+        self::setBDD();
+        $req=self::$bdd->prepare("SELECT * FROM Article WHERE id_article=?");
+        $req->execute([$id]);
+        return $req;
+    }
+
     
 
     

@@ -1,7 +1,7 @@
 <?php
     require_once('../controllers/AManage.php');
     $id_article=$_GET['id-article'];
-
+    $req=AManage::ArticleById($id_article);
 ?>
 
 
@@ -168,7 +168,7 @@
 
                             <div class="text-center mb-50">
                                 <p class="post-date">MAY 01, 2018 / lifestyle</p>
-                                <h2 class="post-title">Express recipes: Give a twist to your classic moong dal with this recipe</h2>
+                                <h2 class="post-title"><?php echo $req['titre'];?></h2>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
                                     <a href="#"><span>by</span> Colorlib</a>
@@ -193,9 +193,7 @@
                                     <a href="#" class="pin"><i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
                                 </div>
 
-                                <p>I love dals. All kinds of them but yellow moong dal is my go-to lentil when I am in need of some easy comfort food. In this recipe I added suva or dill leaves to the classic moong dal recipe for a twist. I like the simplicity of this recipe, just the dal, tomatoes and fresh dill with simple seasoning. This recipe is without any onions and garlic. I love the aroma of fresh dill and I think, in Indian food, we don’t really use dill as much as we can. Nine out of ten times, the only green leaves sprinkled on a curry or a dal is fresh coriander and while I love coriander too, dill adds a unique freshness and aroma to the dal. The delicate feathery leaves of dill are also rich in Vitamin A, C and minerals like iron and manganese.</p>
-
-                                <p>Dals or lentils are packed with proteins and especially in a vegetarian diet, lentils are the main source of protein. It is amazing how this humble yellow moong dal can be made into so many recipes from a plain dal khichdi to mangodi ki sabzi to the traditional Indian desserts like moong dal halwa. Fresh dill should be added only at the end of cooking, much like fresh coriander leaves. They don’t really need to cook and cooking for a long time actually reduces their flavour and aroma.</p>
+                                <p><?php echo $req['en_tete'];?></p>
 
                                 <blockquote class="shortcodes">
                                     <div class="blockquote-icon">
@@ -207,8 +205,7 @@
                                     </div>
                                 </blockquote>
 
-                                <p>Dals or lentils are packed with proteins and especially in a vegetarian diet, lentils are the main source of protein. It is amazing how this humble yellow moong dal can be made into so many recipes from a plain dal khichdi to mangodi ki sabzi to the traditional Indian desserts like moong dal halwa. Fresh dill should be added only at the end of cooking, much like fresh coriander leaves. They don’t really need to cook and cooking for a long time actually reduces their flavour and aroma.</p>
-
+                                <p><?php echo $req['corps'];?></p>
                                 <div class="row">
                                     <div class="col-12 col-md-6">
                                         <img class="mb-30" src="img/blog-img/4.jpg" alt="">

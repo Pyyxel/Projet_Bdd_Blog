@@ -1,3 +1,6 @@
+<?php session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,9 +51,31 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
+                                    
                                     <li><a href="index.php">Home</a></li>
                                     <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
+                                   
+                                        <ul class="dropdown">   
+                                             <?php if(isset($_SESSION["id_type"])){?>
+                                            <?php if($_SESSION["id_type"]==1){?>
+                                            <li><a href="index.php">Admin</a></li>
+                                        <?php 
+                                            }
+                                        ?>
+
+                                            <li><a href="../controllers/logout.php">Deconexion</a></li>
+
+                                        <?php
+
+                                        }else{
+
+                                        ?>
+                                            <li><a href="colorlib-regform-8/conexion.php">Conexion</a></li>
+                                            <li><a href="colorlib-regform-8/index.php">inscription</a></li>
+
+
+                                        <?php
+                                        } ?>
                                             <li><a href="index.php">Home</a></li>
                                             <li><a href="archive-blog.php">Archive Blog</a></li>
                                             <li><a href="single-post.php">Single Post</a></li>
@@ -99,8 +124,8 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li><a href="about-us.php">About</a></li>
-                                    <li><a href="contact.php">Contact</a></li>
+                                   
+
                                 </ul>
 
                                 <!-- Search Form -->

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +25,14 @@
                 <div class="signup-content">
                     <form action="../../controllers/controllersInscription.php" method="POST" id="signup-form" class="signup-form">
                         <h2 class="form-title">Create account</h2>
+                        <?php
+                            if(isset($_SESSION['erreur'])){
+                                echo '<p>'.$_SESSION['erreur'].'<p>';
+                                unset($_SESSION['erreur']);
+
+                            }
+
+                        ?>
                         <div class="form-group">
                             <input type="text" class="form-input" name="pseudo" id="name" placeholder="Pseudo"/>
                         </div>

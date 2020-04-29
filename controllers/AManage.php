@@ -24,6 +24,22 @@ abstract class AManage{
     public function returnArticle(){
         return ADatabase::reqAllArticle();  
     }
+
+    public function ArticleById($id){
+        $req=ADatabase::reqAllArticleById($id);
+        return $req->fetch();
+    }
+
+    public function deconexion(){
+        session_start();
+
+        // Suppression des variables de session et de la session
+        $_SESSION = array();
+        session_destroy();
+
+        echo "Vous êtes maintenant déconnecté";
+        echo "<a href='../views/inde.php'> Cliquer ici pour revenir en arrière </a>";
+    }
 }
 
 ?>

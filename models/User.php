@@ -1,16 +1,26 @@
 <?php
 require_once("ADatabase.php");
 class User extends ADatabase{
+
     private $pseudo;
     private $email;
     private $mdp;
     private $token;
+    private $active;
     private $id_type_user;
+    private $id_user;
 
     public function __construct($pseudo,$email,$mdp){
         $this->pseudo=$pseudo;
         $this->email=$email;
         $this->mdp=$mdp;
+        
+    }
+    public function conexion($token,$active,$id_type_user,$id_user){
+        $this->token=$token;
+        $this->active=$active;
+        $this->id_type_user=$id_type_user;
+        $this->id_user=$id_user;
     }
 
     public function setToken(){
@@ -30,7 +40,16 @@ class User extends ADatabase{
     public function getPseudo(){
         return $this->pseudo;
     }
+    public function getIdType(){
+        return $this->id_type_user;
+    }
+    public function getActive(){
+        return $this->active;
+    }
 
+    public function getIdUser(){
+        return $this->id_user;
+    }
     
     public function inscription(){
         $req=User::$bdd->prepare("INSERT INTO User SET pseudo = ?, email = ? , mdp = ?, token = ?, id_type= 2");
