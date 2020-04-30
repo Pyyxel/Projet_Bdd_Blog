@@ -40,6 +40,36 @@ abstract class AManage{
         echo "Vous êtes maintenant déconnecté";
         echo "<a href='../views/inde.php'> Cliquer ici pour revenir en arrière </a>";
     }
+
+    public function afficherUser(){
+        return ADatabase::userIdType();
+        
+    }
+
+    public function afficherImage($id_article){
+        $id_image=ADatabase::selectPossede($id_article);
+        $req=ADatabase::selectImage($id_article);
+        return $req;
+    }
+
+    public function afficherDroitUser($id_type){
+        $req=ADatabase::afficherDroitUser($id_type);
+        $donnee=$req->fetch();
+        $donnee=$donnee['nom'];
+        return $donnee;
+    }
+
+    public function afficherDroit(){
+        return ADatabase::afficherDroit();
+    }
+
+    public function Active($active){
+        $bool = false;
+        if($active==1){
+            $bool = true;
+        }
+        return $bool;
+    }
 }
 
 ?>

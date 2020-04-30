@@ -56,6 +56,8 @@ class User extends ADatabase{
         $this->setToken();
         $req->execute([$this->pseudo,$this->email,$this->mdp,$this->token]);
     }
+
+    
 }
 
 

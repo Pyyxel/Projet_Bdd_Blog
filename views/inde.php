@@ -58,7 +58,7 @@
                                         <ul class="dropdown">   
                                              <?php if(isset($_SESSION["id_type"])){?>
                                             <?php if($_SESSION["id_type"]==1){?>
-                                            <li><a href="index.php">Admin</a></li>
+                                            <li><a href="admin.php">Admin</a></li>
                                         <?php 
                                             }
                                         ?>
@@ -287,7 +287,7 @@
                                 <div class="single-blog-post mb-50">
                                     <!-- Thumbnail -->
                                     <div class="post-thumbnail">
-                                        <a href="single-post.php?id-article=<?=$donnee['id_article']?>"><img src="img/blog-img/1.jpg" alt=""></a>
+                                        <a href="single-post.php?id-article=<?=$donnee['id_article']?>"><img src=<?php echo $donnee['imageTitre'];?> alt=""></a>
                                     </div>
                                     <!-- Content -->
                                     <div class="post-content">

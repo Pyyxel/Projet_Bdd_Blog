@@ -2,6 +2,7 @@
     require_once('../controllers/AManage.php');
     $id_article=$_GET['id-article'];
     $req=AManage::ArticleById($id_article);
+    $reqImage=AManage::afficherImage($id_article);
 ?>
 
 
@@ -178,7 +179,7 @@
 
                             <!-- Post Thumbnail -->
                             <div class="post-thumbnail mb-50">
-                                <img src="img/blog-img/8.jpg" alt="">
+                                <img src=<?php echo $req['imageTitre'];?> alt="">
                             </div>
 
                             <!-- Post Text -->
@@ -207,12 +208,16 @@
 
                                 <p><?php echo $req['corps'];?></p>
                                 <div class="row">
+                                    <?php 
+                                        while($don=$reqImage->fetch()){
+                                    ?>
+
                                     <div class="col-12 col-md-6">
-                                        <img class="mb-30" src="img/blog-img/4.jpg" alt="">
+                                        <img class="mb-30" src=<?= $don['lien']?> alt="">
                                     </div>
-                                    <div class="col-12 col-md-6">
-                                        <img class="mb-30" src="img/blog-img/3.jpg" alt="">
-                                    </div>
+                                    <?php
+                                        }
+                                    ?>
                                 </div>
 
                                 <!-- List -->

@@ -74,7 +74,41 @@ abstract class ADatabase {
         return $req;
     }
 
-    
+    public function userIdType(){
+        self::setBDD();
+        $req=self::$bdd->prepare("SELECT pseudo,id_type,id_user FROM User WHERE activate = ?");
+        $req->execute([1]);
+        return $req;
+
+    }
+
+    public function afficherDroitUser($id_type){
+        self::setBDD();
+        $req=self::$bdd->prepare("SELECT nom FROM Type_user WHERE id_type = ?");
+        $req->execute([$id_type]);
+        return $req;
+
+    }
+    public function afficherDroit(){
+        self::setBDD();
+        $req=self::$bdd->prepare("SELECT nom FROM Type_user");
+        $req->execute();
+        return $req;
+    }
+
+    public function selectPossede($id){
+        self::setBDD();
+        $req=self::$bdd->prepare("SELECT id_image FROM POSSEDE WHERE id_article= ?");
+        $req->execute([$id]);
+        return $req->fetch();
+    }
+
+    public function selectImage($id){
+        self::setBDD();
+        $req=self::$bdd->prepare("SELECT lien FROM Image WHERE id_image=?");
+        $req->execute([$id]);
+        return $req;
+    }
 
     
 }
