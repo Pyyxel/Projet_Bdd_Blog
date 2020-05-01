@@ -16,7 +16,7 @@
           
                 $_SESSION['erreur']="Vous etes conecté";
                 $_SESSION["pseudo"]=$user->getPseudo();
-                $_SESSION["mdp"]=$user->getMdp();
+                
                 $_SESSION["id_user"]=$user->getIdUser();
                 $_SESSION["id_type"]=$user->getIdType();
                 header('Location: ../views/inde.php');

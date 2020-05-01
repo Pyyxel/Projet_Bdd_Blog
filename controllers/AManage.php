@@ -46,10 +46,13 @@ abstract class AManage{
         
     }
 
-    public function afficherImage($id_article){
-        $id_image=ADatabase::selectPossede($id_article);
-        $req=ADatabase::selectImage($id_article);
-        return $req;
+    public function afficherImage($id_article){     
+        return ADatabase::selectPossede($id_article);;
+    }
+
+    public function rechercheImage($id){
+        $lien=ADatabase::selectLien($id);
+        return $lien['lien'];
     }
 
     public function afficherDroitUser($id_type){

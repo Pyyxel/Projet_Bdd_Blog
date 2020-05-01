@@ -25,6 +25,10 @@ class Article extends ADatabase{
 
     }
 
+    public function getIdArticle(){
+        return $this->id_article;
+    }
+
     public function ajouterArticleBdd(){
         Article::getBDD();
         $req=Article::$bdd->prepare("INSERT INTO Article SET titre = ?, active = ? , en_tete = ?,imageTitre = ?, corps = ?, id_user= ?");

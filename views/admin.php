@@ -81,19 +81,28 @@
                                 echo '<p>'.$_SESSION['erreur'].'<p>';
                                 unset($_SESSION['erreur']);
                             }
+                            if(isset($_SESSION['nbPhoto'])){
                         ?>
+                        
                         <div class="form-group">
                             <input type="text" class="form-input" name="titre" id="titre" placeholder="titre"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="imageTitre" id="email" placeholder="Url de l'image du titre de l'article "/>
+                            <input type="text" class="form-input" name="imageTitre" id="email" placeholder="Url de la miniature du titre de l'article "/>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-input" name="entete" id="password" placeholder="Entete"/>
                         </div>
+                        <?php 
+                            
+                                for($i=0;$i < $_SESSION['nbPhoto'];$i++){
+
+                            
+                        ?>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="imageArticle" id="email" placeholder="Url de l'image du titre de l'article "/>
+                            <input type="text" class="form-input" name="imageArticle<?php echo $i;?>" id="email" placeholder="Url de l'image du titre de l'article "/>
                         </div>
+                                <?php } ?>
                         <div class="form-group">
                             <input type="text" class="form-input" name="corps" id="email" placeholder="corps"/>
                         </div>
@@ -101,6 +110,14 @@
                             <input value="1" type="checkbox" name="active" id="agree-term" class="agree-term" />
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>Afficher ou non l'article</label>
                         </div>
+                                <?php
+                            }else{ 
+                                ?>
+                        <div class="form-group">
+                            <input type="number" class="form-input" name="nbPhoto" id="email" placeholder="nombre d'image dans l'article "/>
+                        </div>
+                                <?php } ?>
+                        
                         <div class="form-group">
                             <input type="submit" name="submit" id="submit" class="form-submit" value="ajouter un article"/>
                         </div>

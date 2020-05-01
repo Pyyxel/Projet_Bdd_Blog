@@ -100,6 +100,13 @@ abstract class ADatabase {
         self::setBDD();
         $req=self::$bdd->prepare("SELECT id_image FROM POSSEDE WHERE id_article= ?");
         $req->execute([$id]);
+        return $req;
+    }
+
+    public function selectLien($id){
+        self::setBDD();
+        $req=self::$bdd->prepare("SELECT lien from Image WHERE id_image= ?");
+        $req->execute([$id]);
         return $req->fetch();
     }
 
