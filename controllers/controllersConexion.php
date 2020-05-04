@@ -15,7 +15,7 @@
             if($user->getActive()==1){
           
                 $_SESSION['erreur']="Vous etes conecté";
-                $_SESSION["pseudo"]=$user->getPseudo();
+                $_SESSION['pseudo']=$user->getPseudo();
                 
                 $_SESSION["id_user"]=$user->getIdUser();
                 $_SESSION["id_type"]=$user->getIdType();

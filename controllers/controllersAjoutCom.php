@@ -6,6 +6,7 @@ $id_user=$_SESSION['id_user'];
 
 if(isset($message)){
     $com=new Commentaire($message,$id_article,$id_user);
+    $com->ajouterCommentaire();
 }
 
 ?>

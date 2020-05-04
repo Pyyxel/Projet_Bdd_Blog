@@ -1,5 +1,6 @@
 <?php
     require_once('../controllers/AManage.php');
+    session_start();
     $id_article=$_GET['id-article'];
     $req=AManage::ArticleById($id_article);
     $reqImage=AManage::afficherImage($id_article);
@@ -293,7 +294,7 @@
 
                                 <!-- Comment Area Start -->
                                 <div class="comment_area clearfix">
-                                    <h4 class="headline">12 Comments</h4>                                   
+                                    <h4 class="headline"><?= AManage::compteCom($id_article)?> commentaires</h4>                                   
                                     <ol>
                                         <!-- Single Comment Area -->
                                         <li class="single_comment_area">
@@ -351,7 +352,7 @@
 
                                 <!-- Leave A Comment -->
                                 <?php
-                                    if (isset($_SESSION['pseudo'])){
+                                    if(isset($_SESSION['pseudo'])){
                                 ?>
                                 <div class="leave-comment-area clearfix">
                                     <div class="comment-form">

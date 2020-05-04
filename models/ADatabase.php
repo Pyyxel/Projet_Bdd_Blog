@@ -117,6 +117,13 @@ abstract class ADatabase {
         return $req;
     }
 
+    public function nombreCom($id_article){
+        self::setBDD();
+        $req=self::$bdd->prepare("SELECT * FROM Commentaire WHERE id_article = ?");
+        $req->execute([$id_article]);
+        return $req->rowCount();
+    }
+
     
 }
 ?>

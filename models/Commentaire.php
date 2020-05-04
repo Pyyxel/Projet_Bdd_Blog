@@ -13,8 +13,11 @@
         }
 
         public function ajouterCommentaire(){
-            
+            Commentaire::getBDD();
+            $req=Commentaire::$bdd->prepare("INSERT INTO Commentaire SET message = ?,id_article = ?, id_user = ?");
+            $req->execute($this->message,$this->id_article,$this->id_user);
         }
+
 
     }
 ?>

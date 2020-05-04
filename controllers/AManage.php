@@ -73,6 +73,10 @@ abstract class AManage{
         }
         return $bool;
     }
+
+    public function compteCom($id_article){
+        return ADatabase::nombreCom($id_article);
+    }
 }
 
 ?>
